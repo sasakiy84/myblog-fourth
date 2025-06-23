@@ -22,11 +22,11 @@ export const { getStaticPaths, GET } = OGImageRoute({
   param: 'image',
   pages,
   getImageOptions: (_path, page) => ({
-    title: page.title,
-    description: page.description,
+    title: page.title.length > 30 ? `${page.title.slice(0, 30)} ...` : page.title,
+    description: page.description.length > 100 ? `${page.description.slice(0, 100)} ...` : page.description,
     logo: {
       path: './public/icons/og-logo.png', // Required local path and PNG format
-      size: [250],
+      size: [80],
     },
     border: {
       color: [242, 241, 245],
@@ -34,20 +34,22 @@ export const { getStaticPaths, GET } = OGImageRoute({
     },
     font: {
       title: {
-        families: ['Noto Sans SC'], // or Noto Serif SC
+        families: ['Noto Sans JP'], // or Noto Serif SC
         weight: 'Bold',
         color: [34, 33, 36],
-        lineHeight: 1.5,
+        lineHeight: 1.3,
       },
       description: {
-        families: ['Noto Sans SC'], // or Noto Serif SC
+        families: ['Noto Sans JP'], // or Noto Serif SC
         color: [72, 71, 74],
-        lineHeight: 1.5,
+        lineHeight: 1.2,
       },
     },
     fonts: [
-      'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Bold.otf',
-      'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
+      'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/JP/NotoSansJP-Bold.otf',
+      'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/JP/NotoSansJP-Regular.otf',
+      // 'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Bold.otf',
+      // 'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
       // 'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Serif/SubsetOTF/SC/NotoSerifSC-Bold.otf',
       // 'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Serif/SubsetOTF/SC/NotoSerifSC-Regular.otf',
     ],

@@ -22,7 +22,7 @@ const followConfig = themeConfig.seo?.follow
 
 // Dynamically import all images from /src/content/articles/_images
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/articles/_images/**/*.{jpeg,jpg,png,gif,webp}',
+  '/src/content/articles/img/**/*.{jpeg,jpg,png,gif,webp}',
 )
 
 /**
