@@ -2,13 +2,15 @@
 title: R で lattice パッケージを使って日本語を埋め込んだPDFの画像を作成する方法（Mac）
 description: Mac で R を使って日本語を埋め込んだPDFの画像を作成する方法について、failed to load cairo DLL というエラーが出た場合の対応手順を説明
 published: 2025-12-04
+tags:
+  - Rlang
 ---
 
 
 Mac で  failed to load cairo DLL というメッセージが出て、R で日本語を埋め込んだPDFの画像を作成できない場合がある。
 
-# 方法１： XQuartz を使った方法
-# 対応手順
+## 方法１： XQuartz を使った方法
+### 対応手順
 1. https://www.xquartz.org/ の XQuartz-XXX.pkg をダウンロード（バージョン番号はなんでもいいはず）して、ダウンロードした pkg をダブルクリックしてソフトウェアをインストールする
 2. PC を再起動する（この手順はスキップしても大丈夫かもしれないが、念のため。私の環境では PC の再起動はしなくてもよかった）
 3. 以下の手順を、RStudio で一行ずつ実行してみる
@@ -26,13 +28,13 @@ install.packages("ragg")
 ```
 
 
-##  やっていることの説明
+###  やっていることの説明
 cairo_pdf では、裏側で X11 という表示を管理するためのシステムを使っている。（?cairo_pdf をすると、In principle these devices are independent of X11 (as is seen by their presence on Windows). But on a Unix-alike the cairo libraries may be distributed as part of the X11 system and hence that (for example, on macOS, XQuartz) may need to be installed. と末尾の note に書かれている。）
 
 Mac のバージョンによっては、このシステムがデフォルトではインストールされていないよう。（cf. https://support.apple.com/ja-jp/100724）
 それを解決するために XQuartz プロジェクトというものがあり、それが提供しているソフトウェアをインストールしてもらうということ。
 
-# 方法２： Quartz を使った方法
+## 方法２： Quartz を使った方法
 奥村先生の [Rの初歩](https://okumuralab.org/~okumura/stat/first.html) に、以下の記述がある。
 
 > MacではOSの機能（Quartz）を使ってコマンドでPDF出力することもできます。Macではこちらが推奨です。
@@ -70,16 +72,14 @@ trellis.par.set(list(
 ))
 ```
 
-# 環境情報
+## 環境情報
 以下の環境で動作確認を行った。
 
 RStudio のバージョンは 2025.09.1+401 (2025.09.1+401)。
 Mac OS は、15.3.2。
 R のバージョン情報は以下の通り。
 
-```
-version
-               _                           
+```                       
 platform       aarch64-apple-darwin20      
 arch           aarch64                     
 os             darwin20                    
