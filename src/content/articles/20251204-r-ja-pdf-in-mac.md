@@ -1,22 +1,31 @@
 ---
 title: R で lattice パッケージを使って日本語を埋め込んだPDFの画像を作成する方法（Mac）
 description: Mac で R を使って日本語を埋め込んだPDFの画像を作成する方法について、failed to load cairo DLL というエラーが出た場合の対応手順を説明
-published: 2025-12-04
+published: 2025-12-05
 tags:
   - Rlang
 ---
 
 
+これは、[TSG Advent Calendar 2025](https://adventar.org/calendars/12405) の 5 日目の記事です。
+半分自分用メモですが、ちょうどアドカレが埋まってなかったので、公開します。
+
+---
+
 Mac で  failed to load cairo DLL というメッセージが出て、R で日本語を埋め込んだPDFの画像を作成できない場合がある。
+方法２は依存関係なしでできるが、検証した範囲だと関数にいちいちフォント指定をしないとうまくいかない。
+方法１の方が汎用性が高く環境ごとにコードを書き換えなくていいので、方法１を推奨する。
 
 ## 方法１： XQuartz を使った方法
+XQuartz というソフトウェアをインストールすることで、cairo_pdf 関数を使って日本語を埋め込んだ PDF を作成できるようになる。
+
 ### 対応手順
 1. https://www.xquartz.org/ の XQuartz-XXX.pkg をダウンロード（バージョン番号はなんでもいいはず）して、ダウンロードした pkg をダブルクリックしてソフトウェアをインストールする
 2. PC を再起動する（この手順はスキップしても大丈夫かもしれないが、念のため。私の環境では PC の再起動はしなくてもよかった）
 3. 以下の手順を、RStudio で一行ずつ実行してみる
 
 ```R
-cairo_pdf("test.pdf", width = 6, height = 4, family = "Japan1") # 念のため、デフォルトの日本語フォントを指定する
+cairo_pdf("test.pdf", width = 6, height = 4) # 必要であれば family 引数でフォントを直接指定する
 qqmath(data, xlab = "日本語ラベル", ylab = "日本語ラベル") # グラフを描画する
 dev.off() # test.pdf が生成されており、中身が存在することを確認する
 ```
