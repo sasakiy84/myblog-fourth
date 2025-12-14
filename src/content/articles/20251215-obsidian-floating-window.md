@@ -19,6 +19,8 @@ Obsidian を Raycast Notes のような「常に最前面に表示されるフ�
   Your browser does not support the video tag.
 </video>
 
+動画の最初でウインドウが明滅してるのは、ショートカットを押して表示を切り替えているため。
+
 なお、Hover Editor というプラグインがあるが、デスクトップ横断で常に最前面に表示する機能はなさそうだったので、自分でスクリプトを書いている。
 
 やりたいことはシンプル。
