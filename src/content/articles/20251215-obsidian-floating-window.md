@@ -15,7 +15,7 @@ Obsidian を Raycast Notes のような「常に最前面に表示されるフ�
 
 
 <video controls autoplay muted loop style="width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 16px;">
-  <source src="/public/20251215-obsidian-floating-window/obsidian-floating-window.mp4" type="video/mp4">
+  <source src="/20251215-obsidian-floating-window/obsidian-floating-window.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
