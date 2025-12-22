@@ -52,11 +52,11 @@ Cost Explorerで内訳を確認したところ、ストレージ保管料では�
 - https://github.com/remotely-save/remotely-save/blob/34db181af002f8d71ea0a87e7965abc57b294914/src/fsS3.ts#L470
 
 おそらく、LIST API で取得できる時間と HEAD API で取得できる時間に差があって、HEAD API を使うことで正確な更新時間を取得できるようにしているのだと思う。
-ただ、AWS S3 に関していえば、2020年のアップデートにより[強力な書き込み後の読み取り整合性](https://aws.amazon.com/jp/blogs/news/amazon-s3-update-strong-read-after-write-consistency/)があり、HEAD と LIST の両方で最新の情報が取得できるはずなので、accurate mtime を有効にする必要はなさそう。
+ただ、AWS S3 に関していえば、2020年のアップデートから[強力な書き込み後の読み取り整合性](https://aws.amazon.com/jp/blogs/news/amazon-s3-update-strong-read-after-write-consistency/)があり、HEAD と LIST の両方で最新の情報が取得できるはずなので、accurate mtime を有効にする必要はなさそう。
 
 AWS S3 以外のS3互換実装では製品や構成に依存して、今でも不整合が残っている可能性があるかもしれないので、個別製品のドキュメントを確認するのが良いと思う。
 
-## 対策と結果
+## 対策
 
 remotely-saveの設定で "Use Accurate MTime" を無効化 した。
 
@@ -84,3 +84,4 @@ remotely-saveの設定で "Use Accurate MTime" を無効化 した。
 ## まとめ
 
 気づかなければ1万円以上を一ヶ月で払うことになっていたわけで、アラートは偉大。
+Obsidian のスマホの同期は大変。
