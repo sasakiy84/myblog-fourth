@@ -8,11 +8,18 @@ published: 2025-12-25
 
 ---
 
-EDINET が公開している XBRL 由来の CSV を企業ごとに集計し、過去10年分をまとめてダウンロードできる Jupyter Notebook を作成した。Google Colaboratory で公開しているため、ブラウザと Google アカウントがあれば誰でも実行可能。
+以下が作ったツール。
 
 - [EDINET CSV Downloader \- Google Colab](https://colab.research.google.com/drive/1KT-f4vIgpCpRVjsiwtuZvPUIzF6W18NB?usp=sharing)  
 
+
+上記のリンクを開いて、指示に従って実行すれば、過去10年分の財務データを CSV 形式でダウンロードできる。
+
+
 ## 機能と便利なところ
+
+EDINET が公開している XBRL 由来の CSV を企業ごとに集計し、過去10年分をまとめてダウンロードできる Jupyter Notebook を作成した。Google Colaboratory で公開しているため、ブラウザと Google アカウントがあれば誰でも実行可能。
+
 
 財務諸表データが通時的に記入された CSV ファイルを自動で生成できる。
 以下は、このツールを使って生成したすかいらーくの過去10年分のデータの一部。
