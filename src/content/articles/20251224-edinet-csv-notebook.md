@@ -1,5 +1,5 @@
 ---
-title: 上場企業の過去10年分の財務データを CSV 形式でダウンロードできる Jupyter Notebook の公開
+title: 上場企業の過去10年分の財務諸表データを CSV 形式でダウンロードできる Jupyter Notebook の公開
 description: EDINET が公開している XBRL 由来の CSV を企業ごとに集計してダウンロードできる Jupyter Notebook を作ったので、Google Colaboratory で公開した。プログラミングの知識がなくても、過去10年分のデータをダウンロードできる
 published: 2025-12-25
 ---
