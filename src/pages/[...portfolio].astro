@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content'
+import MarkdownIt from 'markdown-it'
+import { defaultLocale, moreLocales } from '@/config'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  type PathItem = {
+    params: { portfolio: string }
+    props: { lang: string }
+  }
+
+  const paths: PathItem[] = []
+
+  // Default locale
+  paths.push({
+    params: { portfolio: 'portfolio/' },
+    props: { lang: defaultLocale },
+  })
+
+  // More locales
+  moreLocales.forEach((lang: string) => {
+    paths.push({
+      params: { portfolio: `${lang}/portfolio/` },
+      props: { lang },
+    })
+  })
+
+  return paths
+}
+
+const { lang } = Astro.props
+const parser = new MarkdownIt({ html: true })
+
+function splitPortfolioSections(body: string) {
+  return body
+    .split(/\r?\n-{3,}\r?\n/g)
+    .map(section => section.trim())
+    .filter(Boolean)
+}
+
+const allPortfolioEntries = await getCollection('portfolio')
+const portfolioEntry = allPortfolioEntries.find(entry => entry.data.lang === lang)
+  || allPortfolioEntries.find(entry => entry.data.lang === '')
+
+const sections = portfolioEntry?.body ? splitPortfolioSections(portfolioEntry.body) : []
+const renderedSections = sections.map(section => parser.render(section))
+---
+
+<Layout>
+  <!-- Decorative Line -->
+  <div class="uno-decorative-line"></div>
+  <!-- Portfolio Content -->
+  <div class="heti">
+    {renderedSections.length === 0 && (
+      <p>ポートフォリオの内容がまだありません。</p>
+    )}
+    {renderedSections.map((html, index) => (
+      <section class="mb-12">
+        {index > 0 && <div class="uno-decorative-line"></div>}
+        <div set:html={html}></div>
+      </section>
+    ))}
+  </div>
+</Layout>

@@ -6,6 +6,7 @@ export const ui = {
     posts: '記事',
     tags: 'タグ',
     about: '概要',
+    portfolio: 'ポートフォリオ',
     toc: '目次',
   },
 }
