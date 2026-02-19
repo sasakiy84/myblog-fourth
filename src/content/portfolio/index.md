@@ -3,18 +3,21 @@ lang: ''
 ---
 # ポートフォリオ
 
-## プロジェクトA
-- 概要: 〜のためのWebアプリ
-- 担当: 企画 / 設計 / 実装
-- 技術: Astro, TypeScript, UnoCSS
-- 成果: 月間UU 1万人達成
+## 作成したもの
 
-[デモ](https://example.com) / [GitHub](https://github.com/example)
+### [上場企業の過去10年分の財務諸表データを CSV で取得できる Jupyter Notebook](../articles/20251224-edinet-csv-notebook.md)
+
+![上場企業の過去10年分の財務諸表データを CSV で取得できる Jupyter Notebook で作成した CSV](/public/portfolio/edinet-notebook-csv-demo.png)
+
+### [にじリライブ（YouTube アーカイブ視聴サイト）](https://niji-relive.sasakiy84.net/)
+多視点同時配信の YouTube アーカイブコラボを、まるでライブ配信をみているかのように視聴できるサイト。
+
+![にじリライブの画面](/public/portfolio/niji-relive-demo.png)
 
 ---
 
-## プロジェクトB
-- 概要: 〜の社内ツール
-- 担当: フロントエンド
-- 技術: Astro, Node.js
-- 成果: 作業時間を40%削減
+## 参加したもの
+
+- [TSG CTF 2024 の CTFd インフラ構築](../articles/tsgctf-2024-ctfd.md)
+- [サイボウズ生産性向上チームインターン 2022](../articles/cybozu-intern-2022.md)
+- [セキュリティキャンプ 2022](../articles/seccamp2022-report.md)
