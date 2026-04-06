@@ -133,3 +133,25 @@ sort (GNU coreutils) 8.32
 
 Ubuntu のマイナーバージョンの違いが影響しているのか、あるいは他の何らかの設定が影響しているのかは不明。
 まあとりあえず `sort | uniq` を使うのが無難、という結論は変わらないし、`LC_COLLATE=C` を指定すれば挙動が変わったということも事実なので、今回はこれでよしとする。
+
+
+## 2026-04-06 追記
+`--debug` オプションを知って、サーバーBで `LC_COLLATE="ja_JP.UTF-8" sort -u --debug` を実行してみたところ、以下のようになった。
+
+```
+LC_COLLATE="ja_JP.UTF-8" sort --debug -u <<EOF
+①
+②
+③
+EOF
+sort: failed to set locale
+sort: text ordering performed using simple byte comparison
+①
+___
+②
+___
+③
+___
+```
+
+つまり、単純にロケールの設定がうまくいっていなかっただけだった。
