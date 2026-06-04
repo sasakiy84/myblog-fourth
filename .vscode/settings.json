@@ -1,4 +1,5 @@
 {
+  "terminal.integrated.enableVisualBell": true,
   "[markdown]": {
     "editor.quickSuggestions": {
       "comments": "on",
