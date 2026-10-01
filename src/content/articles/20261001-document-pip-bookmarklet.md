@@ -2,6 +2,8 @@
 title: 画面上に常に最前面で Slack や Notion などのメモ環境を表示する方法
 description: Document Picture in Picture API を使った、インストール不要で職場などでも使えるブックマークレットの紹介。
 published: 2026-10-01
+tags:
+  - Work
 ---
 
 ## 利用方法
@@ -44,3 +46,5 @@ Picture in Picture を好きにカスタマイズできるようになった。
 - Chrome や Edge などの Chromium 系だと他の PiP と共存できないはず。たとえば、YouTube の PiP と同時に使うことはできない。Firefox ならできるかも
 - Safari だと Document PiP 自体が利用できないはず
 
+## 余談
+ところで、こういうことをしたいというニーズはやっぱりあるようで、[Chromium のメーリングリストで alwaysOnTop なウインドウの作成](https://groups.google.com/a/chromium.org/g/blink-dev/c/1hrQn7ACjhI?pli=1)についての提案が出ているよう。
