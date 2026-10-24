@@ -7,9 +7,8 @@ published: 2026-10-11
 
 ```json
 {
-  "name": "Ubuntu",
-  "image": "mcr.microsoft.com/devcontainers/base:resolute",
-
+	"name": "",
+	"image": "mcr.microsoft.com/devcontainers/base:resolute",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "latest",
@@ -17,12 +16,13 @@ published: 2026-10-11
 		},
 		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
-  {
-    "type": "bind",
-    "source": "/home/user/datasets",
-    "target": "/mnt/datasets",
-    "readonly": true
-  }
-  "runArgs": ["--gpus", "all"]
+	"mounts": [
+		"type=bind,source=/mnt/data1,target=/workspaces/data:readonly"
+	],
+	"runArgs": [
+		"--gpus",
+		"all"
+	]
 }
+
 ```
