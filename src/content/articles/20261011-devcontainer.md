@@ -13,6 +13,7 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 {
 	"name": "",
 	"image": "mcr.microsoft.com/devcontainers/base:resolute",
+  "remoteUser": "vscode",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:4": {
 			"version": "latest",
@@ -37,7 +38,9 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 		"PATH": "/home/vscode/.local/bin:${containerEnv:PATH}"
 	},
 	"mounts": [
-		"type=bind,source=/mnt/data1/,target=${containerWorkspaceFolder}/data/"
+		"type=bind,source=/mnt/data1/,target=${containerWorkspaceFolder}/data/",
+    "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
+		"source=codex-config-${devcontainerId},target=/home/vscode/.codex,type=volume"
 	],
 	"runArgs": [
 		"--gpus",
@@ -45,6 +48,7 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 	],
 	"postCreateCommand": {
 		"codex": "curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh",
+    "claude": "curl -fsSL https://claude.ai/install.sh | bash",
 		"uv": "curl -LsSf https://astral.sh/uv/install.sh | sh",
 		"bun": "curl -fsSL https://bun.com/install | bash",
 		"playwright-cli": "npm install -g @playwright/cli@latest && playwright-cli install-browser chrome --with-deps && playwright-cli install --skills=agents --global",
