@@ -46,6 +46,7 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 		"--gpus",
 		"all"
 	],
+  "onCreateCommand": "sudo chown -R \"$(id -u):$(id -g)\" /home/vscode/.claude /home/vscode/.codex",
 	"postCreateCommand": {
 		"codex": "curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh",
     "claude": "curl -fsSL https://claude.ai/install.sh | bash",
