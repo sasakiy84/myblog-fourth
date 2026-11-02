@@ -48,7 +48,8 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 	},
 	"runArgs": [
 		"--gpus",
-		"all"
+		"all",
+    "--name=devcontainer-${localWorkspaceFolderBasename}-${devcontainerId}"
 	],
   "onCreateCommand": "sudo chown -R \"$(id -u):$(id -g)\" /home/vscode/.claude /home/vscode/.codex",
   "postCreateCommand": {
