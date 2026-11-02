@@ -40,20 +40,24 @@ mkdir .devcontainer && touch .devcontainer/devcontainer.json
 	"mounts": [
 		"type=bind,source=/mnt/data1/,target=${containerWorkspaceFolder}/data/",
     "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
+    "source=anthropic-config-${devcontainerId},target=/home/vscode/.config/anthropic,type=volume",
 		"source=codex-config-${devcontainerId},target=/home/vscode/.codex,type=volume"
 	],
+  "containerEnv": {
+		"CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+	},
 	"runArgs": [
 		"--gpus",
 		"all"
 	],
   "onCreateCommand": "sudo chown -R \"$(id -u):$(id -g)\" /home/vscode/.claude /home/vscode/.codex",
-	"postCreateCommand": {
+  "postCreateCommand": {
 		"codex": "curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh",
     "claude": "curl -fsSL https://claude.ai/install.sh | bash",
 		"uv": "curl -LsSf https://astral.sh/uv/install.sh | sh",
 		"bun": "curl -fsSL https://bun.com/install | bash",
-		"playwright-cli": "npm install -g @playwright/cli@latest && playwright-cli install-browser chrome --with-deps && playwright-cli install --skills=agents --global",
-		"sasakiy-skills": "npx --yes skills add --global --agent codex --yes sasakiy84/agent-toolbox/skills/pkg00-base sasakiy84/agent-toolbox/skills/pkg01-dev"
+    "playwright-cli": "npm install -g @playwright/cli@latest && playwright-cli install-browser chromium --with-deps && playwright-cli install --skills=agents --global && playwright-cli install --skills=claude --global",
+		"sasakiy-skills": "npx --yes skills add --global --agent codex --agent claude-code --yes sasakiy84/agent-toolbox/skills/pkg00-base sasakiy84/agent-toolbox/skills/pkg01-dev"
 	}
 }
 ```
